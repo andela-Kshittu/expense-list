@@ -25,17 +25,13 @@ public class ExpenseUtils {
         String cleanAmount = "0.00";
         if(m.matches()) {
             String group = m.group(1);
-            System.out.println("## Group : " + group);
             String reversed = new StringBuilder(group).reverse().toString().replaceFirst(COMMA, DOT);
             String poundString = new StringBuilder(reversed).reverse().toString();
-            System.out.println("## poundString string : " + poundString);
             int index = poundString.lastIndexOf(DOT);
             if (index > -1) {
                 String suffix = poundString.substring(index);
-                System.out.println("## suffix string : " + suffix);
                 poundString = poundString.substring(0, index);
                 cleanAmount = poundString.replace(DOT, BLANK).concat(suffix);
-                System.out.println("## clean string : " + cleanAmount);
             } else {
                 cleanAmount = poundString;
             }
