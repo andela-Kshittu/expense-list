@@ -6,9 +6,12 @@ Requirement (Must be insatlled):
 
 How to run the your solution...
 
-1. Ensure MySql is running on your system.
+1. Ensure MySql is running on your system at port 3306. if you have it running on another port you 
+   change that in ```application.properties``` file located at :
+                                                     
+     ```<project location>/backend-coding-challenge/solution/src/main/resources/application.properties```
 
-2. Open application.properties file, located at :
+2. Open ```application.properties``` file, located at :
  
     ```<project location>/backend-coding-challenge/solution/src/main/resources/application.properties```
 3. Set the following properties to your mysql username and password 
