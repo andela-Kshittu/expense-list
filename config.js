@@ -8,8 +8,7 @@ module.exports = {
 	// Build target directory, this is where all the static files will end up
 	target: "./static",
 	htmltarget: "./static",
-	port: "8080",
-
+	
 	// Font service url
 	fonts: "//fast.fonts.net/jsapi/8f4aef36-1a46-44be-a573-99686bfcc33b.js",
 

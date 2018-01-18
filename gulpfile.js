@@ -389,7 +389,7 @@ gulp.task("less", gulpsync.sync(["gitinfo", "uncompressed", "copyfrom", "html", 
 gulp.task("apps", gulpsync.sync(["gitinfo", "uncompressed", "copyfrom", "html", "iconfont", "apps-scripts", "copyto"], "sync apps"));
 
 gulp.task("server", ["dev"], function() {
-	connect.server({ root: config.target, port : config.port});
+	connect.server({ root: config.target});
 });
 
 // Present help info
