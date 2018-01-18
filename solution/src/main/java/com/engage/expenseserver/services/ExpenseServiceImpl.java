@@ -1,7 +1,7 @@
 package com.engage.expenseserver.services;
 
 import static com.engage.expenseserver.utils.ExpenseUtils.EUR;
-import static com.engage.expenseserver.utils.ExpenseUtils.cleanPounds;
+import static com.engage.expenseserver.utils.ExpenseUtils.cleanAmount;
 import static com.engage.expenseserver.utils.ExpenseUtils.convertToPounds;
 
 import com.engage.expenseserver.domains.Expense;
@@ -29,8 +29,8 @@ public class ExpenseServiceImpl implements ExpenseService {
 
         // Add vat before saving.
         String amount = expense.getAmount();
-        Double value = amount.endsWith(EUR) ? convertToPounds(amount) : Double.valueOf(cleanPounds(amount));
-        Double vat = (value / 100) * 20;
+        Double value = amount.endsWith(EUR) ? convertToPounds(amount) : Double.valueOf(cleanAmount(amount));
+        Double vat = (value * 20) / 100;
 
         // Ensure id is not set from frontend
         expense.setId(null);

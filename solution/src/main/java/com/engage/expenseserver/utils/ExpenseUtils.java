@@ -9,10 +9,10 @@ import java.util.regex.Pattern;
 public class ExpenseUtils {
     private static final Pattern p = Pattern.compile("(^[0-9.,]+).*");
     public static final String EUR = "EUR";
-    public static final String COMMA = ",";
-    public static final String DOT = ".";
-    public static final String BLANK = "";
-    public static final Double RATE = 0.88;
+    private static final String COMMA = ",";
+    private static final String DOT = ".";
+    private static final String BLANK = "";
+    private static final Double RATE = 0.88;
 
     public static Double convertToPounds(String amount) {
         return Double.valueOf(cleanAmount(amount)) * RATE;
@@ -21,7 +21,7 @@ public class ExpenseUtils {
     public static String cleanAmount(String amount) {
         // Normalize number string before conversion
         Matcher m = p.matcher(amount);
-        // resolve invalid amounts to
+        // resolve invalid amounts.
         String cleanAmount = "0.00";
         if(m.matches()) {
             String group = m.group(1);
@@ -37,11 +37,5 @@ public class ExpenseUtils {
             }
         }
         return cleanAmount;
-    }
-
-    public static String cleanPounds(String amount) {
-        // Normalize number string before conversion
-        Matcher m = p.matcher(amount);
-        return amount.replace(COMMA, BLANK);
     }
 }
