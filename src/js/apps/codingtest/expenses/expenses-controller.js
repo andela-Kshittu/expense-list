@@ -31,6 +31,12 @@ app.controller("ctrlExpenses", ["$rootScope", "$scope", "config", "restalchemy",
 		});
 	}
 
+	var calculateVat = function() {
+		var amount = $scope.newExpense.amount || "0.00";
+		var numbers = amount.match(/^[0-9.,]+/);
+		return (parseFloat(numbers) * 20 ) / 100;
+	}
+
 	$scope.saveExpense = function() {
 		if ($scope.expensesform.$valid) {
 			// Post the expense via REST
@@ -43,6 +49,10 @@ app.controller("ctrlExpenses", ["$rootScope", "$scope", "config", "restalchemy",
 
 	$scope.clearExpense = function() {
 		$scope.newExpense = {};
+	};
+
+	$scope.amountChanged = function() {
+		$scope.newExpense.vat = calculateVat();
 	};
 
 	// Initialise scope variables
